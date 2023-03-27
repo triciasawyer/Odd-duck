@@ -41,7 +41,11 @@ function renderProducts() {
   let product3 = getRandomNum();
   console.log(typeof product1, product2, product3);
 
-  while (product1 === product2) {
+  while (product1 === product2 || product1 === product3) {
+    product1 = getRandomNum();
+  }
+
+  while (product2 === product1 || product2 === product3) {
     product2 = getRandomNum();
   }
 
@@ -109,7 +113,7 @@ new Product('bathroom', 'images/bathroom.jpg');
 new Product('boots', 'images/boots.jpg');
 new Product('breakfast', 'images/breakfast.jpg');
 new Product('bubblegum', 'images/bubblegum.jpg');
-new Product('chair', 'chair.jpg');
+new Product('chair', 'images/chair.jpg');
 new Product('dog-duck', 'images/dog-duck.jpg');
 new Product('dragon', 'images/dragon.jpg');
 new Product('figurine', 'images/figurine.jpg');
@@ -117,7 +121,7 @@ new Product('pen', 'images/pen.jpg');
 new Product('pet-sweep', 'images/pet-sweep.jpg');
 new Product('scissors', 'images/scissors.jpg');
 new Product('shark', 'images/shark.jpg');
-new Product('sweep', 'images/sweep.jpg');
+new Product('sweep', 'images/sweep.png');
 new Product('tauntaun', 'images/tauntaun.jpg');
 new Product('unicorn', 'images/unicorn.jpg');
 new Product('water-can', 'images/water-can.jpg');
