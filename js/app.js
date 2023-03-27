@@ -3,7 +3,7 @@ console.log('js is connected.');
 
 // global variables
 let productContainer = document.querySelector('section');
-let resultBox = document.querySelector('section + div');
+let resultBox = document.querySelector('div');
 let image1 = document.querySelector('section img:first-child');
 let image2 = document.querySelector('section img:nth-child(2)');
 let image3 = document.querySelector('section img:nth-child(3)');
@@ -83,9 +83,8 @@ function productClicked(event) {
 
   if (clicks === maxClicks) {
     productContainer.removeEventListener('click', productClicked);
-
     resultBox.addEventListener('click', renderResults);
-    productContainer.clasName = 'no-voting';
+    productContainer.className = 'no-voting';
   } else {
     console.log('Many', clicks);
     renderProducts();
@@ -94,7 +93,7 @@ function productClicked(event) {
 
 function renderResults(){
   let ul = document.querySelector('ul');
-  for(let i = 0; i < Product.allProductsArray.length; i++);{
+  for(let i = 0; i < Product.allProductsArray.length; i++){
     let li = document.createElement('li');
     li.textContent = `${Product.allProductsArray[i].name} had ${Product.allProductsArray[i].views} views and was clicked ${Product.allProductsArray[i].clickedProduct} times.`;
     ul.appendChild(li);

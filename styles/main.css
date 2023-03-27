@@ -36,7 +36,6 @@ section {
     grid-column-end: 3;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     height: 400px;
     width: 1350px;
 }
@@ -59,15 +58,14 @@ section.no-voting img:hover {
 
 ul {
     background-color: aliceblue;
-    margin: 40px;
-    width: 500px;
+    margin: 1rem;
 }
 
 li {
     margin: 5px;
 }
 
-section+div {
+section+div{
     background-color: rgb(92, 144, 192);
     color: aliceblue;
     font-size: 30px;
@@ -77,6 +75,6 @@ section+div {
     width: max-content;
 }
 
-div ul {
-   text-align: center;
+.results {
+    
 }
