@@ -24,7 +24,7 @@ function Product(name, src) {
   this.clickedProduct = 0;
   Product.allProductsArray.push(this);
 }
-console.log('Products? ', Product.allProductsArray);
+console.log('Products ', Product.allProductsArray);
 
 
 // generate random number
@@ -48,7 +48,6 @@ function renderProducts() {
   while (product2 === product1 || product2 === product3) {
     product2 = getRandomNum();
   }
-
 
   // image data so we can show and track them
   image1.src = Product.allProductsArray[product1].imageSrc;
@@ -76,7 +75,7 @@ function productClicked(event) {
   console.log('🚀 ~ file: app.js:74 ~ productClicked ~ chosenProduct:', chosenProduct);
   for (let i = 0; i < Product.allProductsArray.length; i++) {
     if (chosenProduct === Product.allProductsArray[i].name) {
-      Product.allProductsArray[i].clickedProduct++;//////
+      Product.allProductsArray[i].clickedProduct++;
       break;
     }
   }
@@ -86,7 +85,7 @@ function productClicked(event) {
     resultBox.addEventListener('click', renderResults);
     productContainer.className = 'no-voting';
   } else {
-    console.log('Many', clicks);
+    console.log('Clicked', clicks);
     renderProducts();
   }
 }
@@ -95,6 +94,7 @@ function renderResults(){
   let ul = document.querySelector('ul');
   for(let i = 0; i < Product.allProductsArray.length; i++){
     let li = document.createElement('li');
+    ul.appendChild(li);
     li.textContent = `${Product.allProductsArray[i].name} had ${Product.allProductsArray[i].views} views and was clicked ${Product.allProductsArray[i].clickedProduct} times.`;
     ul.appendChild(li);
   }
@@ -128,6 +128,7 @@ new Product('wine-glass', 'images/wine-glass.jpg');
 
 
 renderProducts();
+renderResults();
 
 
 
