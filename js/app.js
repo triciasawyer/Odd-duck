@@ -1,5 +1,9 @@
 'use strict';
-console.log('js is connected.');
+// console.log('js is connected.');
+
+let lastViewed = [];
+
+// console.log('🚀 ~ file: app.js:5 ~ lastViewed:", lastViewed');
 
 // global variables
 let productContainer = document.querySelector('section');
@@ -7,13 +11,13 @@ let resultBox = document.querySelector('div');
 let image1 = document.querySelector('section img:first-child');
 let image2 = document.querySelector('section img:nth-child(2)');
 let image3 = document.querySelector('section img:nth-child(3)');
-console.log(productContainer, resultBox, image1, image2, image3);
+
+
 
 // click counts for the rounds
 let clicks = 0;
 let maxClicks = 10;
 Product.allProductsArray = [];
-
 
 
 // constructor function to build the image objects
@@ -28,26 +32,45 @@ console.log('Products ', Product.allProductsArray);
 
 
 // generate random number
-function getRandomNum() {
+function getRandomImg() {
   return Math.floor(Math.random() * Product.allProductsArray.length);
 }
 
 
 // rendering images
 function renderProducts() {
-  let product1 = getRandomNum();
-  let product2 = getRandomNum();
-  let product3 = getRandomNum();
-  console.log(typeof product1, product2, product3);
+  let product1 = getRandomImg();
+  let product2 = getRandomImg();
+  let product3 = getRandomImg();
 
-  //rendering images so they are all different
-  while (product1 === product2 || product1 === product3) {
-    product1 = getRandomNum();
+  while (lastViewed.includes(product1)){
+    console.log('product1',product1);
+    product1 = getRandomImg();
+  }
+  lastViewed.push(product1);
+
+  while (lastViewed.includes(product2));{
+    product2 = getRandomImg();
+  }
+  lastViewed.push(product2);
+
+
+
+
+  while (lastViewed.includes(product3));{
+    product3 = getRandomImg();
+  }
+  lastViewed.push(product3);
+
+  console.log(lastViewed);
+
+  if (lastViewed.length > 3){
+    lastViewed.splice(0, 3);
+    console.log('inside the if: ',lastViewed);
   }
 
-  while (product2 === product1 || product2 === product3) {
-    product2 = getRandomNum();
-  }
+
+
 
   // image data so we can show and track them
   image1.src = Product.allProductsArray[product1].imageSrc;
@@ -59,13 +82,17 @@ function renderProducts() {
   image2.alt = Product.allProductsArray[product2].name;
   image3.alt = Product.allProductsArray[product3].name;
 
-  console.log(image1, image2, image3);
-
   // Go to array, views = views + 1
   Product.allProductsArray[product1].views++;
   Product.allProductsArray[product2].views++;
   Product.allProductsArray[product3].views++;
 }
+
+
+
+
+
+
 
 // click on pictures only
 function productClicked(event) {
@@ -106,6 +133,7 @@ function renderResults() {
 }
 
 
+
 new Product('Bag', 'images/bag.jpg');
 new Product('Banana', 'images/banana.jpg');
 new Product('Bathroom', 'images/bathroom.jpg');
@@ -127,6 +155,7 @@ new Product('Water can', 'images/water-can.jpg');
 new Product('Wine glass', 'images/wine-glass.jpg');
 
 
+
 renderProducts();
 
 
@@ -134,7 +163,6 @@ productContainer.addEventListener('click', productClicked);
 
 
 // rendering myChart
-
 function renderChart() {
   console.log(Product.allProductsArray);
 
