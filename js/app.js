@@ -34,13 +34,13 @@ function getRandomNum() {
 
 
 // rendering images
-
 function renderProducts() {
   let product1 = getRandomNum();
   let product2 = getRandomNum();
   let product3 = getRandomNum();
-  console.log(typeof product1, product2, product3);
+  console.log('typeof product1, product2, product3');
 
+  //rendering images so they are all different
   while (product1 === product2 || product1 === product3) {
     product1 = getRandomNum();
   }
@@ -54,6 +54,7 @@ function renderProducts() {
   image2.src = Product.allProductsArray[product2].imageSrc;
   image3.src = Product.allProductsArray[product3].imageSrc;
 
+  // image name
   image1.alt = Product.allProductsArray[product1].name;
   image2.alt = Product.allProductsArray[product2].name;
   image3.alt = Product.allProductsArray[product3].name;
@@ -65,16 +66,20 @@ function renderProducts() {
   Product.allProductsArray[product3].views++;
 }
 
+// click on pictures only
 function productClicked(event) {
   console.log(event.target);
   if (event.target === productContainer) {
     alert('Click on an image.');
   }
+
+  //tracking total clicks
   clicks++;
   let chosenProduct = event.target.alt;
   console.log('🚀 ~ file: app.js:74 ~ productClicked ~ chosenProduct:', chosenProduct);
   for (let i = 0; i < Product.allProductsArray.length; i++) {
     if (chosenProduct === Product.allProductsArray[i].name) {
+      //adding image clicked on totals
       Product.allProductsArray[i].clickedProduct++;
       break;
     }
@@ -83,28 +88,25 @@ function productClicked(event) {
   if (clicks === maxClicks) {
     productContainer.removeEventListener('click', productClicked);
     resultBox.addEventListener('click', renderResults);
-    productContainer.className = 'no-voting';
+
   } else {
     console.log('Clicked', clicks);
     renderProducts();
   }
 }
 
-function renderResults(){
+function renderResults() {
   let ul = document.querySelector('ul');
-  for(let i = 0; i < Product.allProductsArray.length; i++){
+  for (let i = 0; i < Product.allProductsArray.length; i++) {
     let li = document.createElement('li');
-    ul.appendChild(li);
     li.textContent = `${Product.allProductsArray[i].name} had ${Product.allProductsArray[i].views} views and was clicked ${Product.allProductsArray[i].clickedProduct} times.`;
     ul.appendChild(li);
   }
 }
 
+
+
 // render result in an unordered list
-
-
-
-
 
 new Product('Bag', 'images/bag.jpg');
 new Product('Banana', 'images/banana.jpg');
@@ -129,8 +131,6 @@ new Product('wine-glass', 'images/wine-glass.jpg');
 
 renderProducts();
 renderResults();
-
-
 
 
 productContainer.addEventListener('click', productClicked);
