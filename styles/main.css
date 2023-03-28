@@ -1,3 +1,89 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background-color: rgb(153, 109, 153);
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(8, 61, 111);
+    color: black;
+    height: auto;
+}
+
+main {
+    width: 1150px;
+    margin: 45px;
+    /* display: grid;
+    grid-template-columns: 200px 5 fr;
+    grid-template-rows: 10rem 10rem 15rem 40%; */
+}
+
+h1 {
+    font-size: 40px;
+    color: whitesmoke;
+    font-style: italic;
+    width: 300px;
+    margin-left: 525px;
+    text-align: center;
+    padding-bottom: 80px;
+}
+
+section {
+    background-color: rgb(200, 196, 196);
+    display: flex;
+    justify-content: space-between;
+    height: 400px;
+    width: 1350px;
+}
+
+section img {
+    width: 300px;
+    height: 300px;
+    border: 5px solid transparent;
+    padding: 3px;
+}
+
+section img:hover {
+    border: 5px solid rgb(110, 151, 201);
+}
+
+section.no-voting img:hover {
+    border: 5px solid transparent;
+    cursor: none;
+}
+
+section+div{
+    background-color: rgb(92, 144, 192);
+    padding: 8px 15px;
+    margin: 15px;
+    height: max-content;
+    width: max-content;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    margin: 1rem;
+    width: 800px;
+    height: 500px;
+    margin-top: 80px;
+    margin-left: 280px;
+    font-size: 30px;
+}
+
+.results ul {
+    color: rgb(3, 2, 25);
+    font-size: 20px;
+    padding-left: 50px;
+    padding-top: 30px;
+}
+
+.results h2 {
+    color: black;
+    padding-left: 180px;
+    background-color: lightblue;
+    height: 50px;
+    padding-top: 10px;
+    text-align: center;
+    padding-right: 180px;
 }
