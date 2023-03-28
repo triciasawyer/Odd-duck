@@ -81,7 +81,9 @@ section+div{
 .results h2 {
     color: black;
     padding-left: 180px;
-    text-decoration: underline;
+    background-color: lightblue;
+    height: 50px;
+    padding-top: 10px;
     text-align: center;
     padding-right: 180px;
 }
