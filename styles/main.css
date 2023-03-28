@@ -89,3 +89,8 @@ section+div{
     padding-top: 5px;
     text-align: center;
 }
+
+#myChart {
+padding-top: 20px;
+margin-top: 20px;
+}

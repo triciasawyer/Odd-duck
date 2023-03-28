@@ -89,7 +89,6 @@ function productClicked(event) {
   if (clicks === maxClicks) {
     productContainer.removeEventListener('click', productClicked);
     resultBox.addEventListener('click', renderResults);
-
   } else {
     console.log('Clicked', clicks);
     renderProducts();
@@ -98,11 +97,12 @@ function productClicked(event) {
 
 function renderResults() {
   let ul = document.querySelector('ul');
-  for (let i = 0; i , Product.allProductsArray.length; i++) {
+  for (let i = 0; i < Product.allProductsArray.length; i++) {
     let li = document.createElement('li');
     li.textContent = `${Product.allProductsArray[i].name} had ${Product.allProductsArray[i].views} views and was clicked ${Product.allProductsArray[i].clickedProduct} times.`;
     ul.appendChild(li);
   }
+  renderChart();
 }
 
 
@@ -131,3 +131,55 @@ renderProducts();
 
 
 productContainer.addEventListener('click', productClicked);
+
+
+// rendering myChart
+
+function renderChart() {
+  console.log(Product.allProductsArray);
+
+  //Make the names, likes, and total views
+  let productNames = [];
+  let productLikes = [];
+  let productViews = [];
+
+
+  for (let i = 0; i < Product.allProductsArray.length; i++) {
+    productNames.push(Product.allProductsArray[i].name);
+    productLikes.push(Product.allProductsArray[i].clickedProduct);
+    productViews.push(Product.allProductsArray[i].views);
+  }
+  console.log(productNames, productLikes, productViews);
+
+
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'pie',
+
+    data: {
+      labels: productNames,
+      datasets: [
+        {
+          label: 'Liked product',
+          backgroundColor: 'rgb(0,250,154)',
+          data: productLikes,
+          borderWidth: 2,
+        },
+        {
+          label: 'Viewed product',
+          backgroundColor: 'rgb(221,160,221)',
+          data: productViews,
+          borderWidth: 2,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+}
