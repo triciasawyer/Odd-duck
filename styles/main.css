@@ -78,12 +78,14 @@ section+div{
     padding-top: 30px;
 }
 
-.results h2 {
+.results button {
     color: black;
-    padding-left: 180px;
     background-color: lightblue;
     height: 50px;
-    padding-top: 10px;
+    width: 400px;
+    font-size: 30px;
+    margin-left: 185px;
+    margin-top: 10px;
+    padding-top: 5px;
     text-align: center;
-    padding-right: 180px;
 }

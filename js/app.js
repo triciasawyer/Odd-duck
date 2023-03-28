@@ -108,23 +108,23 @@ function renderResults() {
 
 new Product('Bag', 'images/bag.jpg');
 new Product('Banana', 'images/banana.jpg');
-new Product('bathroom', 'images/bathroom.jpg');
-new Product('boots', 'images/boots.jpg');
-new Product('breakfast', 'images/breakfast.jpg');
-new Product('bubblegum', 'images/bubblegum.jpg');
-new Product('chair', 'images/chair.jpg');
-new Product('dog-duck', 'images/dog-duck.jpg');
-new Product('dragon', 'images/dragon.jpg');
-new Product('figurine', 'images/figurine.jpg');
-new Product('pen', 'images/pen.jpg');
-new Product('pet-sweep', 'images/pet-sweep.jpg');
-new Product('scissors', 'images/scissors.jpg');
-new Product('shark', 'images/shark.jpg');
-new Product('sweep', 'images/sweep.png');
-new Product('tauntaun', 'images/tauntaun.jpg');
-new Product('unicorn', 'images/unicorn.jpg');
-new Product('water-can', 'images/water-can.jpg');
-new Product('wine-glass', 'images/wine-glass.jpg');
+new Product('Bathroom', 'images/bathroom.jpg');
+new Product('Boots', 'images/boots.jpg');
+new Product('Breakfast', 'images/breakfast.jpg');
+new Product('Bubblegum', 'images/bubblegum.jpg');
+new Product('Chair', 'images/chair.jpg');
+new Product('Dog-duck', 'images/dog-duck.jpg');
+new Product('Dragon meat', 'images/dragon.jpg');
+new Product('Figurine', 'images/figurine.jpg');
+new Product('Pen', 'images/pen.jpg');
+new Product('Pet-sweep', 'images/pet-sweep.jpg');
+new Product('Scissors', 'images/scissors.jpg');
+new Product('Shark', 'images/shark.jpg');
+new Product('Baby-sweep', 'images/sweep.png');
+new Product('Tauntaun', 'images/tauntaun.jpg');
+new Product('Unicorn meat', 'images/unicorn.jpg');
+new Product('Water can', 'images/water-can.jpg');
+new Product('Wine glass', 'images/wine-glass.jpg');
 
 
 renderProducts();
