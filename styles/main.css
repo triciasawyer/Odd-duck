@@ -51,16 +51,6 @@ section.no-voting img:hover {
     cursor: none;
 }
 
-/* ul {
-    background-color: aliceblue;
-    margin: 1rem;
-    width: 500px;
-}
-
-li {
-    margin: 5px;
-} */
-
 section+div{
     background-color: rgb(92, 144, 192);
     padding: 8px 15px;
