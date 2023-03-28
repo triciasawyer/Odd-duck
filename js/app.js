@@ -38,7 +38,7 @@ function renderProducts() {
   let product1 = getRandomNum();
   let product2 = getRandomNum();
   let product3 = getRandomNum();
-  console.log('typeof product1, product2, product3');
+  console.log(typeof product1, product2, product3);
 
   //rendering images so they are all different
   while (product1 === product2 || product1 === product3) {
@@ -58,6 +58,7 @@ function renderProducts() {
   image1.alt = Product.allProductsArray[product1].name;
   image2.alt = Product.allProductsArray[product2].name;
   image3.alt = Product.allProductsArray[product3].name;
+
   console.log(image1, image2, image3);
 
   // Go to array, views = views + 1
@@ -97,16 +98,13 @@ function productClicked(event) {
 
 function renderResults() {
   let ul = document.querySelector('ul');
-  for (let i = 0; i < Product.allProductsArray.length; i++) {
+  for (let i = 0; i , Product.allProductsArray.length; i++) {
     let li = document.createElement('li');
     li.textContent = `${Product.allProductsArray[i].name} had ${Product.allProductsArray[i].views} views and was clicked ${Product.allProductsArray[i].clickedProduct} times.`;
     ul.appendChild(li);
   }
 }
 
-
-
-// render result in an unordered list
 
 new Product('Bag', 'images/bag.jpg');
 new Product('Banana', 'images/banana.jpg');
@@ -130,7 +128,6 @@ new Product('wine-glass', 'images/wine-glass.jpg');
 
 
 renderProducts();
-renderResults();
 
 
 productContainer.addEventListener('click', productClicked);
