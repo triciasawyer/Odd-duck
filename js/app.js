@@ -115,6 +115,7 @@ function productClicked(event) {
 
 function renderResults() {
   let ul = document.querySelector('ul');
+  // ul.innerHTML = '';
   for (let i = 0; i < Product.allProductsArray.length; i++) {
     let li = document.createElement('li');
     li.textContent = `${Product.allProductsArray[i].name} had ${Product.allProductsArray[i].views} views and was clicked ${Product.allProductsArray[i].clickedProduct} times.`;
