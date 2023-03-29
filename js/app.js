@@ -22,8 +22,6 @@ function Product(name, src) {
   this.clickedProduct = 0;
   Product.allProductsArray.push(this);
 }
-console.log('Products ', Product.allProductsArray);
-
 
 // click counts for the rounds
 let clicks = 0;
@@ -32,7 +30,6 @@ Product.allProductsArray = [];
 
 let lastViewed = [];
 
-// let currentlyViewing = [];
 
 // generate random number
 function getRandomImg() {
@@ -46,27 +43,27 @@ function renderProducts() {
   let product2 = getRandomImg();
   let product3 = getRandomImg();
 
-  while (lastViewed.includes(product1)){
+  while (lastViewed.includes(product1)) {
     // console.log('product1',product1);
     product1 = getRandomImg();
   }
   lastViewed.push(product1);
 
-  while (lastViewed.includes(product2)){
+  while (lastViewed.includes(product2)) {
     product2 = getRandomImg();
   }
   lastViewed.push(product2);
 
 
-  while (lastViewed.includes(product3)){
+  while (lastViewed.includes(product3)) {
     product3 = getRandomImg();
   }
   lastViewed.push(product3);
 
 
-  if (lastViewed.length > 3){
+  if (lastViewed.length > 3) {
     lastViewed.splice(0, 3);
-    console.log('inside the if: ',lastViewed);
+    console.log('inside the if: ', lastViewed);
   }
 
 
@@ -109,6 +106,7 @@ function productClicked(event) {
     productContainer.removeEventListener('click', productClicked);
     resultBox.addEventListener('click', renderResults);
     console.log('Clicked', clicks);
+    localStorage.setItem('savedProduct', JSON.stringify(Product.allProductsArray));
   } else {
     renderProducts();
   }
@@ -124,6 +122,29 @@ function renderResults() {
   }
   renderChart();
 }
+
+
+// JSON out of local storage
+let savedProductString = localStorage.getItem('savedProduct');
+console.log('local storage', savedProductString);
+
+
+if (savedProductString) {
+  let arrayNotProductObject = JSON.parse(savedProductString);
+  console.log('🚀 ~ file: app.js:33 ~ arrayNotProductObject:', arrayNotProductObject);
+
+  // run objects through constructor function so they are product objects
+  for (let j = 0; j < arrayNotProductObject.length; j++) {
+    new Product(
+      this.name = arrayNotProductObject[j].name,
+      this.imageSrc = arrayNotProductObject[j].imageSrc,
+      this.views = arrayNotProductObject[j].views,
+      this.clickedProduct = arrayNotProductObject[j].clickedProduct
+    );
+  }
+}
+
+
 
 
 
