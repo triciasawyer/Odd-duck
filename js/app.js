@@ -15,7 +15,7 @@ let image3 = document.querySelector('section img:nth-child(3)');
 
 
 // constructor function to build the image objects
-function Product(name, src) {
+function Product(name, src, views, clickedProduct) {
   this.name = name;
   this.imageSrc = src;
   this.views = 0;
