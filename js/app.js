@@ -15,15 +15,13 @@ let image3 = document.querySelector('section img:nth-child(3)');
 
 
 // constructor function to build the image objects
-function Product(name, src) {
+function Product(name, src, views, clickedProduct) {
   this.name = name;
   this.imageSrc = src;
   this.views = 0;
   this.clickedProduct = 0;
   Product.allProductsArray.push(this);
 }
-console.log('Products ', Product.allProductsArray);
-
 
 // click counts for the rounds
 let clicks = 0;
@@ -32,7 +30,6 @@ Product.allProductsArray = [];
 
 let lastViewed = [];
 
-// let currentlyViewing = [];
 
 // generate random number
 function getRandomImg() {
@@ -46,27 +43,27 @@ function renderProducts() {
   let product2 = getRandomImg();
   let product3 = getRandomImg();
 
-  while (lastViewed.includes(product1)){
+  while (lastViewed.includes(product1)) {
     // console.log('product1',product1);
     product1 = getRandomImg();
   }
   lastViewed.push(product1);
 
-  while (lastViewed.includes(product2)){
+  while (lastViewed.includes(product2)) {
     product2 = getRandomImg();
   }
   lastViewed.push(product2);
 
 
-  while (lastViewed.includes(product3)){
+  while (lastViewed.includes(product3)) {
     product3 = getRandomImg();
   }
   lastViewed.push(product3);
 
 
-  if (lastViewed.length > 3){
+  if (lastViewed.length > 3) {
     lastViewed.splice(0, 3);
-    console.log('inside the if: ',lastViewed);
+    console.log('inside the if: ', lastViewed);
   }
 
 
@@ -109,6 +106,7 @@ function productClicked(event) {
     productContainer.removeEventListener('click', productClicked);
     resultBox.addEventListener('click', renderResults);
     console.log('Clicked', clicks);
+    localStorage.setItem('savedProduct', JSON.stringify(Product.allProductsArray));
   } else {
     renderProducts();
   }
@@ -116,7 +114,8 @@ function productClicked(event) {
 
 
 function renderResults() {
-  let ul = document.querySelector('ul');
+  let ul = document.getElementById('ul');
+  ul.innerHTML = '';
   for (let i = 0; i < Product.allProductsArray.length; i++) {
     let li = document.createElement('li');
     li.textContent = `${Product.allProductsArray[i].name} had ${Product.allProductsArray[i].views} views and was clicked ${Product.allProductsArray[i].clickedProduct} times.`;
@@ -126,26 +125,48 @@ function renderResults() {
 }
 
 
+// JSON out of local storage
+let savedProductString = localStorage.getItem('savedProduct');
+console.log('local storage', savedProductString);
 
-new Product('Bag', 'images/bag.jpg');
-new Product('Banana', 'images/banana.jpg');
-new Product('Bathroom', 'images/bathroom.jpg');
-new Product('Boots', 'images/boots.jpg');
-new Product('Breakfast', 'images/breakfast.jpg');
-new Product('Bubblegum', 'images/bubblegum.jpg');
-new Product('Chair', 'images/chair.jpg');
-new Product('Dog-duck', 'images/dog-duck.jpg');
-new Product('Dragon meat', 'images/dragon.jpg');
-new Product('Figurine', 'images/figurine.jpg');
-new Product('Pen', 'images/pen.jpg');
-new Product('Pet-sweep', 'images/pet-sweep.jpg');
-new Product('Scissors', 'images/scissors.jpg');
-new Product('Shark', 'images/shark.jpg');
-new Product('Baby-sweep', 'images/sweep.png');
-new Product('Tauntaun', 'images/tauntaun.jpg');
-new Product('Unicorn meat', 'images/unicorn.jpg');
-new Product('Water can', 'images/water-can.jpg');
-new Product('Wine glass', 'images/wine-glass.jpg');
+
+if (savedProductString) {
+  let arrayNotProductObject = JSON.parse(savedProductString);
+  console.log('🚀 ~ file: app.js:33 ~ arrayNotProductObject:', arrayNotProductObject);
+
+  // run objects through constructor function so they are product objects
+  for (let j = 0; j < arrayNotProductObject.length; j++) {
+    new Product(
+      this.name = arrayNotProductObject[j].name,
+      this.imageSrc = arrayNotProductObject[j].imageSrc,
+      this.views = arrayNotProductObject[j].views,
+      this.clickedProduct = arrayNotProductObject[j].clickedProduct
+    );
+  }
+} else {
+  new Product('Bag', 'images/bag.jpg');
+  new Product('Banana', 'images/banana.jpg');
+  new Product('Bathroom', 'images/bathroom.jpg');
+  new Product('Boots', 'images/boots.jpg');
+  new Product('Breakfast', 'images/breakfast.jpg');
+  new Product('Bubblegum', 'images/bubblegum.jpg');
+  new Product('Chair', 'images/chair.jpg');
+  new Product('Dog-duck', 'images/dog-duck.jpg');
+  new Product('Dragon meat', 'images/dragon.jpg');
+  new Product('Figurine', 'images/figurine.jpg');
+  new Product('Pen', 'images/pen.jpg');
+  new Product('Pet-sweep', 'images/pet-sweep.jpg');
+  new Product('Scissors', 'images/scissors.jpg');
+  new Product('Shark', 'images/shark.jpg');
+  new Product('Baby-sweep', 'images/sweep.png');
+  new Product('Tauntaun', 'images/tauntaun.jpg');
+  new Product('Unicorn meat', 'images/unicorn.jpg');
+  new Product('Water can', 'images/water-can.jpg');
+  new Product('Wine glass', 'images/wine-glass.jpg');
+}
+
+
+
 
 
 
