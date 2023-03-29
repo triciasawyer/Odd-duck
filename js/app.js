@@ -114,8 +114,8 @@ function productClicked(event) {
 
 
 function renderResults() {
-  let ul = document.querySelector('ul');
-  // ul.innerHTML = '';
+  let ul = document.getElementById('ul');
+  ul.innerHTML = '';
   for (let i = 0; i < Product.allProductsArray.length; i++) {
     let li = document.createElement('li');
     li.textContent = `${Product.allProductsArray[i].name} had ${Product.allProductsArray[i].views} views and was clicked ${Product.allProductsArray[i].clickedProduct} times.`;
@@ -143,31 +143,30 @@ if (savedProductString) {
       this.clickedProduct = arrayNotProductObject[j].clickedProduct
     );
   }
+} else {
+  new Product('Bag', 'images/bag.jpg');
+  new Product('Banana', 'images/banana.jpg');
+  new Product('Bathroom', 'images/bathroom.jpg');
+  new Product('Boots', 'images/boots.jpg');
+  new Product('Breakfast', 'images/breakfast.jpg');
+  new Product('Bubblegum', 'images/bubblegum.jpg');
+  new Product('Chair', 'images/chair.jpg');
+  new Product('Dog-duck', 'images/dog-duck.jpg');
+  new Product('Dragon meat', 'images/dragon.jpg');
+  new Product('Figurine', 'images/figurine.jpg');
+  new Product('Pen', 'images/pen.jpg');
+  new Product('Pet-sweep', 'images/pet-sweep.jpg');
+  new Product('Scissors', 'images/scissors.jpg');
+  new Product('Shark', 'images/shark.jpg');
+  new Product('Baby-sweep', 'images/sweep.png');
+  new Product('Tauntaun', 'images/tauntaun.jpg');
+  new Product('Unicorn meat', 'images/unicorn.jpg');
+  new Product('Water can', 'images/water-can.jpg');
+  new Product('Wine glass', 'images/wine-glass.jpg');
 }
 
 
 
-
-
-new Product('Bag', 'images/bag.jpg');
-new Product('Banana', 'images/banana.jpg');
-new Product('Bathroom', 'images/bathroom.jpg');
-new Product('Boots', 'images/boots.jpg');
-new Product('Breakfast', 'images/breakfast.jpg');
-new Product('Bubblegum', 'images/bubblegum.jpg');
-new Product('Chair', 'images/chair.jpg');
-new Product('Dog-duck', 'images/dog-duck.jpg');
-new Product('Dragon meat', 'images/dragon.jpg');
-new Product('Figurine', 'images/figurine.jpg');
-new Product('Pen', 'images/pen.jpg');
-new Product('Pet-sweep', 'images/pet-sweep.jpg');
-new Product('Scissors', 'images/scissors.jpg');
-new Product('Shark', 'images/shark.jpg');
-new Product('Baby-sweep', 'images/sweep.png');
-new Product('Tauntaun', 'images/tauntaun.jpg');
-new Product('Unicorn meat', 'images/unicorn.jpg');
-new Product('Water can', 'images/water-can.jpg');
-new Product('Wine glass', 'images/wine-glass.jpg');
 
 
 
