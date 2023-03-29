@@ -29,13 +29,13 @@ function Product(name, src) {
 }
 console.log('Products ', Product.allProductsArray);
 
+let lastViewed = [];
 
 // generate random number
 function getRandomImg() {
   return Math.floor(Math.random() * Product.allProductsArray.length);
 }
 
-let lastViewed = [];
 
 // rendering images
 function renderProducts() {
@@ -43,8 +43,8 @@ function renderProducts() {
   let product2 = getRandomImg();
   let product3 = getRandomImg();
 
-  while (lastViewed.includes(product1)){
-    console.log('product1',product1);
+  while (lastViewed.includes(product1));{
+    // console.log('product1',product1);
     product1 = getRandomImg();
   }
   lastViewed.push(product1);
@@ -55,43 +55,38 @@ function renderProducts() {
   lastViewed.push(product2);
 
 
-
   while (lastViewed.includes(product3));{
     product3 = getRandomImg();
   }
   lastViewed.push(product3);
 
-  console.log(lastViewed);
+  // console.log(lastViewed);
 
-  if (lastViewed.length < 3){
+  if (lastViewed.length > 3){
     lastViewed.splice(0, 3);
     console.log('inside the if: ',lastViewed);
   }
-
-
-
-  // image data so we can show and track them
-  image1.src = Product.allProductsArray[product1].imageSrc;
-  image2.src = Product.allProductsArray[product2].imageSrc;
-  image3.src = Product.allProductsArray[product3].imageSrc;
 
   // image name
   image1.alt = Product.allProductsArray[product1].name;
   image2.alt = Product.allProductsArray[product2].name;
   image3.alt = Product.allProductsArray[product3].name;
 
+  // image data so we can show and track them
+  image1.src = Product.allProductsArray[product1].imageSrc;
+  image2.src = Product.allProductsArray[product2].imageSrc;
+  image3.src = Product.allProductsArray[product3].imageSrc;
+
   // Go to array, views = views + 1
   Product.allProductsArray[product1].views++;
   Product.allProductsArray[product2].views++;
   Product.allProductsArray[product3].views++;
-
 }
 
 
 
 // click on pictures only
 function productClicked(event) {
-  console.log(event.target);
   if (event.target === productContainer) {
     alert('Click on an image.');
   }
@@ -99,7 +94,6 @@ function productClicked(event) {
   //tracking total clicks
   clicks++;
   let chosenProduct = event.target.alt;
-  // console.log('🚀 ~ file: app.js:74 ~ productClicked ~ chosenProduct:', chosenProduct);
   for (let i = 0; i < Product.allProductsArray.length; i++) {
     if (chosenProduct === Product.allProductsArray[i].name) {
       //adding image clicked on totals
@@ -111,12 +105,11 @@ function productClicked(event) {
   if (clicks === maxClicks) {
     productContainer.removeEventListener('click', productClicked);
     resultBox.addEventListener('click', renderResults);
-  } else {
     console.log('Clicked', clicks);
+  } else {
     renderProducts();
   }
 }
-
 
 
 function renderResults() {
@@ -161,7 +154,7 @@ productContainer.addEventListener('click', productClicked);
 
 // rendering myChart
 function renderChart() {
-  // console.log(Product.allProductsArray);
+  console.log(Product.allProductsArray);
 
   //Make the names, likes, and total views
   let productNames = [];
@@ -173,7 +166,7 @@ function renderChart() {
     productLikes.push(Product.allProductsArray[i].clickedProduct);
     productViews.push(Product.allProductsArray[i].views);
   }
-  // console.log(productNames, productLikes, productViews);
+  console.log(productNames, productLikes, productViews);
 
 
   const ctx = document.getElementById('myChart');
@@ -208,5 +201,3 @@ function renderChart() {
     },
   });
 }
-
-// productClicked();
