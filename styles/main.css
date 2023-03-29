@@ -31,6 +31,8 @@ section {
     background-color: rgb(200, 196, 196);
     display: flex;
     justify-content: space-between;
+    border: 5px solid rgb(143, 153, 216);
+    padding: 45px;
     height: 400px;
     width: 1350px;
 }
@@ -38,7 +40,6 @@ section {
 section img {
     width: 300px;
     height: 300px;
-    border: 5px solid transparent;
     padding: 3px;
 }
 
@@ -51,7 +52,7 @@ section.no-voting img:hover {
     cursor: none;
 }
 
-section+div{
+section+div {
     background-color: rgb(92, 144, 192);
     padding: 8px 15px;
     margin: 15px;
@@ -64,26 +65,34 @@ section+div{
     flex-direction: column;
     background-color: aliceblue;
     margin: 1rem;
-    width: 800px;
+    width: 700px;
     height: 500px;
     margin-top: 80px;
-    margin-left: 280px;
+    margin-left: 320px;
     font-size: 30px;
 }
 
-.results ul {
+ul {
     color: rgb(3, 2, 25);
     font-size: 20px;
     padding-left: 50px;
     padding-top: 30px;
 }
 
-.results h2 {
+.results button {
     color: black;
-    padding-left: 180px;
     background-color: lightblue;
     height: 50px;
-    padding-top: 10px;
+    width: 400px;
+    font-size: 30px;
+    margin-left: 135px;
+    margin-top: 10px;
+    padding-top: 5px;
     text-align: center;
-    padding-right: 180px;
+}
+
+footer {
+    margin-top: 100px;
+    width: 1000px;
+    margin-left: 225px;
 }
