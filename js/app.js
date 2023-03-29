@@ -13,11 +13,6 @@ let image3 = document.querySelector('section img:nth-child(3)');
 
 
 
-// click counts for the rounds
-let clicks = 0;
-let maxClicks = 10;
-Product.allProductsArray = [];
-
 
 // constructor function to build the image objects
 function Product(name, src) {
@@ -29,7 +24,15 @@ function Product(name, src) {
 }
 console.log('Products ', Product.allProductsArray);
 
+
+// click counts for the rounds
+let clicks = 0;
+let maxClicks = 10;
+Product.allProductsArray = [];
+
 let lastViewed = [];
+
+// let currentlyViewing = [];
 
 // generate random number
 function getRandomImg() {
@@ -43,29 +46,29 @@ function renderProducts() {
   let product2 = getRandomImg();
   let product3 = getRandomImg();
 
-  while (lastViewed.includes(product1));{
+  while (lastViewed.includes(product1)){
     // console.log('product1',product1);
     product1 = getRandomImg();
   }
   lastViewed.push(product1);
 
-  while (lastViewed.includes(product2));{
+  while (lastViewed.includes(product2)){
     product2 = getRandomImg();
   }
   lastViewed.push(product2);
 
 
-  while (lastViewed.includes(product3));{
+  while (lastViewed.includes(product3)){
     product3 = getRandomImg();
   }
   lastViewed.push(product3);
 
-  // console.log(lastViewed);
 
   if (lastViewed.length > 3){
     lastViewed.splice(0, 3);
     console.log('inside the if: ',lastViewed);
   }
+
 
   // image name
   image1.alt = Product.allProductsArray[product1].name;
