@@ -1,7 +1,6 @@
 'use strict';
 // console.log('js is connected.');
 
-let lastViewed = [];
 
 // console.log('🚀 ~ file: app.js:5 ~ lastViewed:", lastViewed');
 
@@ -36,6 +35,7 @@ function getRandomImg() {
   return Math.floor(Math.random() * Product.allProductsArray.length);
 }
 
+let lastViewed = [];
 
 // rendering images
 function renderProducts() {
@@ -56,7 +56,6 @@ function renderProducts() {
 
 
 
-
   while (lastViewed.includes(product3));{
     product3 = getRandomImg();
   }
@@ -64,11 +63,10 @@ function renderProducts() {
 
   console.log(lastViewed);
 
-  if (lastViewed.length > 3){
+  if (lastViewed.length < 3){
     lastViewed.splice(0, 3);
     console.log('inside the if: ',lastViewed);
   }
-
 
 
 
@@ -86,11 +84,8 @@ function renderProducts() {
   Product.allProductsArray[product1].views++;
   Product.allProductsArray[product2].views++;
   Product.allProductsArray[product3].views++;
+
 }
-
-
-
-
 
 
 
@@ -104,7 +99,7 @@ function productClicked(event) {
   //tracking total clicks
   clicks++;
   let chosenProduct = event.target.alt;
-  console.log('🚀 ~ file: app.js:74 ~ productClicked ~ chosenProduct:', chosenProduct);
+  // console.log('🚀 ~ file: app.js:74 ~ productClicked ~ chosenProduct:', chosenProduct);
   for (let i = 0; i < Product.allProductsArray.length; i++) {
     if (chosenProduct === Product.allProductsArray[i].name) {
       //adding image clicked on totals
@@ -121,6 +116,8 @@ function productClicked(event) {
     renderProducts();
   }
 }
+
+
 
 function renderResults() {
   let ul = document.querySelector('ul');
@@ -164,29 +161,29 @@ productContainer.addEventListener('click', productClicked);
 
 // rendering myChart
 function renderChart() {
-  console.log(Product.allProductsArray);
+  // console.log(Product.allProductsArray);
 
   //Make the names, likes, and total views
   let productNames = [];
   let productLikes = [];
   let productViews = [];
 
-
   for (let i = 0; i < Product.allProductsArray.length; i++) {
     productNames.push(Product.allProductsArray[i].name);
     productLikes.push(Product.allProductsArray[i].clickedProduct);
     productViews.push(Product.allProductsArray[i].views);
   }
-  console.log(productNames, productLikes, productViews);
+  // console.log(productNames, productLikes, productViews);
 
 
   const ctx = document.getElementById('myChart');
 
   new Chart(ctx, {
-    type: 'pie',
+    type: 'bar',
 
     data: {
       labels: productNames,
+      backgroundColor: 'rgb(102, 178, 255)',
       datasets: [
         {
           label: 'Liked product',
@@ -211,3 +208,5 @@ function renderChart() {
     },
   });
 }
+
+// productClicked();
