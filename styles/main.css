@@ -18,20 +18,20 @@ main {
 }
 
 h1 {
-    font-size: 40px;
+    font-size: 50px;
     color: whitesmoke;
     font-style: italic;
-    width: 300px;
+    width: 310px;
     margin-left: 525px;
     text-align: center;
     padding-bottom: 80px;
 }
 
 section {
-    background-color: rgb(200, 196, 196);
+    background-color: rgb(68, 116, 173);
     display: flex;
     justify-content: space-between;
-    border: 5px solid rgb(143, 153, 216);
+    box-shadow: 0 10px 20px 5px rgb(45, 79, 172);
     padding: 45px;
     height: 400px;
     width: 1350px;
@@ -44,7 +44,7 @@ section img {
 }
 
 section img:hover {
-    border: 5px solid rgb(110, 151, 201);
+    border: 5px solid rgb(198, 210, 224);
 }
 
 section.no-voting img:hover {
@@ -63,7 +63,7 @@ section+div {
 .results {
     display: flex;
     flex-direction: column;
-    background-color: aliceblue;
+    background-color: rgb(170, 191, 208);
     margin: 1rem;
     width: 700px;
     height: 500px;
@@ -81,10 +81,11 @@ ul {
 
 .results button {
     color: black;
-    background-color: lightblue;
+    background-color: rgb(112, 176, 215);
     height: 50px;
     width: 400px;
     font-size: 30px;
+    font-style: italic;
     margin-left: 135px;
     margin-top: 10px;
     padding-top: 5px;
