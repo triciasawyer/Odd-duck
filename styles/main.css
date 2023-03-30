@@ -9,12 +9,26 @@ body {
     height: auto;
 }
 
+nav a {
+    color: rgb(173, 190, 181);
+    text-decoration: none;
+    background-color: rgb(129, 29, 154);
+    padding: 8px;
+    border-radius: 10px;
+}
+
+nav li {
+    display: inline;
+    padding: 30px;
+}
+
+.nav-ul {
+    text-decoration: none;
+}
+
 main {
     width: 1150px;
     margin: 45px;
-    /* display: grid;
-    grid-template-columns: 200px 5 fr;
-    grid-template-rows: 10rem 10rem 15rem 40%; */
 }
 
 h1 {
