@@ -61,8 +61,6 @@ section+div {
 }
 
 .results {
-    display: flex;
-    flex-direction: column;
     background-color: rgb(170, 191, 208);
     margin: 1rem;
     width: 700px;
@@ -82,6 +80,7 @@ ul {
 .results button {
     color: black;
     background-color: rgb(112, 176, 215);
+    border-radius: 15px;
     height: 50px;
     width: 400px;
     font-size: 30px;
