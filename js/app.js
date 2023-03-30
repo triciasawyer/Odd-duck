@@ -18,8 +18,18 @@ let image3 = document.querySelector('section img:nth-child(3)');
 function Product(name, src, views, clickedProduct) {
   this.name = name;
   this.imageSrc = src;
-  this.views = 0;
-  this.clickedProduct = 0;
+
+  if(views) {
+    this.views = views;
+  } else {
+    this.views = 0;
+  }
+
+  if (clickedProduct) {
+    this.clickedProduct = clickedProduct;
+  } else {
+    this.clickedProduct = 0;
+  }
   Product.allProductsArray.push(this);
 }
 
